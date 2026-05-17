@@ -101,3 +101,50 @@ Verifies if the API is currently running.
       "status": "ok"
     }
     ```
+
+---
+
+## Frontend Setup & Usage
+
+The frontend is a React application built using Create React App, styled with Material-UI (MUI), and animated with Framer Motion. It provides a clean, modern user interface for generating AI interview questions.
+
+### Features
+
+- **Modern UI/UX:** Styled with Material-UI using a custom theme (Deep Space Blue and Princeton Orange palette).
+- **Smooth Animations:** Integrated with `framer-motion` for engaging page entries and transitions.
+- **REST Integration:** Communicates seamlessly with the Flask backend.
+- **Responsive:** Mobile-ready out of the box.
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm (Node Package Manager)
+
+### Setup
+
+1. **Navigate to the frontend directory:**
+
+   ```bash
+   cd frontend
+   ```
+
+2. **Install the dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Environment Configuration (Optional):**
+   By default, the React app expects the backend to run on `http://localhost:5000`. If you wish to change this, create a `.env` file in the `frontend/` directory:
+
+   ```properties
+   REACT_APP_BACKEND_URL="http://your-custom-backend-url"
+   ```
+
+4. **Running the Application:**
+
+   ```bash
+   npm start
+   ```
+
+   The application will start on `http://localhost:3000` by default. Open it in your browser to start using the Job Role Question Generator!
