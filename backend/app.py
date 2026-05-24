@@ -21,6 +21,15 @@ def extract_questions(response_text):
     if not response_text:
         return []
 
+    response_text = response_text.strip()
+    if response_text.startswith("```json"):
+        response_text = response_text[7:]
+    elif response_text.startswith("```"):
+        response_text = response_text[3:]
+    if response_text.endswith("```"):
+        response_text = response_text[:-3]
+    response_text = response_text.strip()
+
     parsed_questions = []
 
     try:
@@ -58,7 +67,7 @@ def generate_questions():
     if not AI_API_KEY:
         return jsonify({"error": "AI_API_KEY is not configured."}), 500
 
-    prompt = f"you are an expert interviewer. Generate 3 interview questions for the job role: {job_title}. It should always be 3 questions. Only return the questions, no explanations or formatting."
+    prompt = f"You are an expert interviewer. Generate exactly 3 interview questions for the job role: {job_title}. Return the response strictly as a JSON array of strings containing exactly 3 questions. Do not include markdown formatting or any other text."
     payload = {
         "contents": [
             {
