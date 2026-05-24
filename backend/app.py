@@ -58,7 +58,7 @@ def generate_questions():
     if not AI_API_KEY:
         return jsonify({"error": "AI_API_KEY is not configured."}), 500
 
-    prompt = f"you are an expert interviewer. Generate 3 interview questions for the job role: {job_title}. return only the questions in a list format without any additional text or formatting."
+    prompt = f"you are an expert interviewer. Generate 3 interview questions for the job role: {job_title}. It should always be 3 questions. Only return the questions, no explanations or formatting."
     payload = {
         "contents": [
             {
